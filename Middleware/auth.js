@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
             console.log(token)
             token = token.split(" ")[1];
             let user = jwt.verify(token, process.env.SECRET_KEY);
-            req.userid = user.id;
+            req.user = user;
         }
         else {
             console.log("Unauthorized user");
