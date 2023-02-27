@@ -15,6 +15,10 @@ const todoSchema = new mongoose.Schema({
   },
   lists: [
     {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+      },
      name:{
         type:String,
      },
@@ -28,7 +32,7 @@ const todoSchema = new mongoose.Schema({
   
   date: {
     type: Date,
-    default: Date.now,
+    default: () => new Date().toISOString().substring(0, 10),
   },
 });
 

@@ -22,7 +22,7 @@ const addTodo = async (req, res) => {
 // Get all todos
 const getTodos = async (req, res) => {
   try {
-    const todos = await TodoModel.find();
+    const todos = await TodoModel.find().populate('createdBy');
     res.status(200).json(todos);
   } catch (err) {
     res.status(400).json({ error: err.message });
