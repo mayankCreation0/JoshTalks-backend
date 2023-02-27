@@ -12,7 +12,7 @@ routes.get('/:id',asyncHandler(getTodoById));
 routes.put('/:id',checkUserAuth,asyncHandler(updateTodoById));
 routes.delete('/:id',checkUserAuth,asyncHandler(deleteTodoById));
 routes.post('/lists/:id',checkUserAuth,asyncHandler(addObjectToLists));
-routes.put('/lists/:id',checkUserAuth,asyncHandler(updateObjectInLists));
-routes.delete('/lists/:id',checkUserAuth,asyncHandler(deleteObjectFromLists));
+routes.put('/lists/:id/:listId',checkUserAuth,asyncHandler(updateObjectInLists));
+routes.delete('/lists/:id/:listId',checkUserAuth,asyncHandler(deleteObjectFromLists));
 
 module.exports=routes;
