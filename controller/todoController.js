@@ -3,13 +3,14 @@ const TodoModel = require("../models/todoModel");
 // Add a new todo
 const addTodo = async (req, res) => {
   const { name, description } = req.body;
-  const {_id}=req.user;
+  const {id}=req.user;
 
+  console.log("req",req.user)
   try {
     const todo = new TodoModel({
       name,
       description,
-      createdBy:_id,
+      createdBy:id,
     });
 
     await todo.save();
